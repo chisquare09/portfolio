@@ -1,739 +1,498 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Van Nguyen</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-/* Override strong tags inside headings to maintain consistent weight */
-h1 strong,
-h2 strong,
-h3 strong {
-	font-weight: 600;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 10px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.collection-content td {
-	white-space: pre-wrap;
-	word-break: break-word;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	padding-inline-start: 0;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.page-description {
-	margin-bottom: 2em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-	empty-cells: show;
-}
-.simple-table td {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table th {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table-header-color {
-	background: rgb(247, 246, 243);
-	color: black;
-}
-.simple-table-header {
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.callout img.notion-static-icon {
-	width: 1em;
-	height: 1em;
-}
-
-.callout p {
-	margin: 0;
-}
-
-.callout h1,
-.callout h2,
-.callout h3 {
-	margin: 0 0 0.6rem;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-blockquote.quote-large {
-	font-size: 1.25em;
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(44, 44, 43, 1);
-}
-.highlight-gray {
-	color: rgba(125, 122, 117, 1);
-	fill: rgba(125, 122, 117, 1);
-}
-.highlight-brown {
-	color: rgba(159, 118, 90, 1);
-	fill: rgba(159, 118, 90, 1);
-}
-.highlight-orange {
-	color: rgba(210, 123, 45, 1);
-	fill: rgba(210, 123, 45, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 148, 52, 1);
-	fill: rgba(203, 148, 52, 1);
-}
-.highlight-teal {
-	color: rgba(80, 148, 110, 1);
-	fill: rgba(80, 148, 110, 1);
-}
-.highlight-blue {
-	color: rgba(56, 125, 201, 1);
-	fill: rgba(56, 125, 201, 1);
-}
-.highlight-purple {
-	color: rgba(154, 107, 180, 1);
-	fill: rgba(154, 107, 180, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(207, 81, 72, 1);
-	fill: rgba(207, 81, 72, 1);
-}
-.highlight-default_background {
-	color: rgba(44, 44, 43, 1);
-}
-.highlight-gray_background {
-	background: rgba(42, 28, 0, 0.07);
-}
-.highlight-brown_background {
-	background: rgba(139, 46, 0, 0.086);
-}
-.highlight-orange_background {
-	background: rgba(224, 101, 1, 0.129);
-}
-.highlight-yellow_background {
-	background: rgba(211, 168, 0, 0.137);
-}
-.highlight-teal_background {
-	background: rgba(0, 100, 45, 0.09);
-}
-.highlight-blue_background {
-	background: rgba(0, 124, 215, 0.094);
-}
-.highlight-purple_background {
-	background: rgba(102, 0, 178, 0.078);
-}
-.highlight-pink_background {
-	background: rgba(197, 0, 93, 0.086);
-}
-.highlight-red_background {
-	background: rgba(223, 22, 0, 0.094);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(125, 122, 117, 1);
-	fill: rgba(125, 122, 117, 1);
-}
-.block-color-brown {
-	color: rgba(159, 118, 90, 1);
-	fill: rgba(159, 118, 90, 1);
-}
-.block-color-orange {
-	color: rgba(210, 123, 45, 1);
-	fill: rgba(210, 123, 45, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 148, 52, 1);
-	fill: rgba(203, 148, 52, 1);
-}
-.block-color-teal {
-	color: rgba(80, 148, 110, 1);
-	fill: rgba(80, 148, 110, 1);
-}
-.block-color-blue {
-	color: rgba(56, 125, 201, 1);
-	fill: rgba(56, 125, 201, 1);
-}
-.block-color-purple {
-	color: rgba(154, 107, 180, 1);
-	fill: rgba(154, 107, 180, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(207, 81, 72, 1);
-	fill: rgba(207, 81, 72, 1);
-}
-.block-color-default_background {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray_background {
-	background: rgba(240, 239, 237, 1);
-}
-.block-color-brown_background {
-	background: rgba(245, 237, 233, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 235, 222, 1);
-}
-.block-color-yellow_background {
-	background: rgba(249, 243, 220, 1);
-}
-.block-color-teal_background {
-	background: rgba(232, 241, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(229, 242, 252, 1);
-}
-.block-color-purple_background {
-	background: rgba(243, 235, 249, 1);
-}
-.block-color-pink_background {
-	background: rgba(250, 233, 241, 1);
-}
-.block-color-red_background {
-	background: rgba(252, 233, 231, 1);
-}
-.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
-.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
-.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
-.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
-.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
-.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
-.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
-.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
-.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
-.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="21266ad2-9311-8044-aa4e-c669073e2b47" class="page serif"><header><img class="page-cover-image" src="image/1727202968158.jpeg" style="object-position:center 95.59%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🌸</span></div><h1 class="page-title" dir="auto">Van Nguyen</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="21266ad2-9311-813d-be23-e26df42181ff" class="">Est                                              2004</p></div><div style="display:contents" dir="auto"><hr id="21266ad2-9311-81dc-80ae-d1fc6fc1b4d8"/></div><div style="display:contents" dir="auto"><blockquote id="21366ad2-9311-802b-b4a0-f5558fa103e1" class="">Welcome to my little space, where you can find me in many personalities. I believe education, patient and kindness are the solution for everything.<br/>Thank you for spending your precious time. I hope to bring you some fresh air after a long day. </blockquote></div><div style="display:contents" dir="auto"><hr id="21266ad2-9311-81e9-8c15-c4701929a730"/></div><div style="display:contents" dir="auto"><h1 id="21266ad2-9311-81f6-8734-db10108bae1f" class=""><mark class="highlight-blue">About Me</mark></h1></div><div style="display:contents" dir="auto"><div id="21366ad2-9311-80a3-98c3-e882cec861d2" class="column-list"><div style="display:contents" dir="auto"><div id="21366ad2-9311-80eb-b716-c7bbfe0c9023" style="width:87.5%" class="column"><div style="display:contents" dir="auto"><div id="21966ad2-9311-80e3-afe8-ce06cf53952d" class="column-list"><div style="display:contents" dir="auto"><div id="21966ad2-9311-8065-87b8-cf500ff966e4" style="width:18.75%" class="column"><div style="display:contents" dir="auto"><p id="21266ad2-9311-8068-9876-d7f66def26c2" class="">
-</p></div></div></div><div style="display:contents" dir="auto"><div id="21966ad2-9311-80c3-ac4c-c2f37accbc09" style="width:106.25%" class="column"><div style="display:contents" dir="auto"><p id="21266ad2-9311-81f3-9ecc-f5555418436b" class="">I am currently an AI Developer at Vinamilk -  Vietnam Dairy Products Joint Stock Company, a leading dairy brand in Southeast Asia.</p></div><div style="display:contents" dir="auto"><p id="21966ad2-9311-8083-a95a-e5d6c6659a48" class="">My achievements include: </p></div><div style="display:contents" dir="auto"><ul id="21266ad2-9311-809a-8784-d9442d48a356" class="bulleted-list"><li style="list-style-type:disc">Merit Scholarships/Internship Scholarship for excellent students of USTH</li></ul></div><div style="display:contents" dir="auto"><ul id="21266ad2-9311-8051-a420-c282f0127117" class="bulleted-list"><li style="list-style-type:disc">ERASMUS+ scholarship for exchange study at University of Trento (Italy)</li></ul></div><div style="display:contents" dir="auto"><ul id="27166ad2-9311-80ff-b7bc-cd59bee3e14a" class="bulleted-list"><li style="list-style-type:disc">First prize of USTH Student Scientific Research 2025 competition</li></ul></div><div style="display:contents" dir="auto"><ul id="21266ad2-9311-80b5-98e8-eb6270291d89" class="bulleted-list"><li style="list-style-type:disc">Multiples Certificates of Merit from science institution, university principal and clubs.</li></ul></div></div></div></div></div><div style="display:contents" dir="auto"><p id="21966ad2-9311-80a1-ac3f-d4cdf78814ed" class="">
-</p></div><div style="display:contents" dir="auto"><p id="21366ad2-9311-8010-b4e9-f943386c181c" class="">
-</p></div><div style="display:contents" dir="auto"><p id="21366ad2-9311-8023-9323-e5096bff2f14" class="">
-</p></div></div></div><div style="display:contents" dir="auto"><div id="21366ad2-9311-80fd-920f-c083fbcf2166" style="width:68.74999999999999%" class="column"><div style="display:contents" dir="auto"><div id="21966ad2-9311-802a-af80-f3d49601f918" class="column-list"><div style="display:contents" dir="auto"><div id="21966ad2-9311-80c9-9032-d276c30dca3b" style="width:81.25%" class="column"><div style="display:contents" dir="ltr"><figure id="21266ad2-9311-8121-a20d-f7b9f5597a9b" class="image" style="text-align:center"><a href="image/288e738399382d667429.jpg"><img style="width:336px" src="image/288e738399382d667429.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="21366ad2-9311-80bd-890e-daf493e73e44" class="">
-</p></div></div></div><div style="display:contents" dir="auto"><div id="21966ad2-9311-80b0-afce-c22101e390cd" style="width:75%" class="column"><div style="display:contents" dir="auto"><p id="21966ad2-9311-80a2-8899-e2c072a48bfb" class="">
-</p></div></div></div></div></div></div></div></div></div><div style="display:contents" dir="auto"><h1 id="21266ad2-9311-81ad-b3b4-d62e16a4ab5b" class=""><mark class="highlight-blue"><strong>But  I am not an achievement or a number, I am a young person, and …</strong></mark></h1></div><div style="display:contents" dir="auto"><hr id="21366ad2-9311-8055-96d0-e16d228a00c5"/></div><div style="display:contents" dir="auto"><h1 id="21366ad2-9311-80b0-ac1e-d2fd8ade9ebc" class="">A passionate beginner scientist</h1></div><div style="display:contents" dir="auto"><blockquote id="21366ad2-9311-80e6-b511-fe91b853b28d" class="">Everybody has to start somewhere. Even an expertise.<br/>During 3 years of my Bachelor degree, beside learning from university courses, the curious in science has lead me to multiple scientific research topics. <br/>My main research interest are Bioinformatics and Generative AI. But I believe there is no boundary in science, as long as we still curious, we can develop in any science sectors.</blockquote></div><div style="display:contents" dir="auto"><div id="21266ad2-9311-81d3-86bc-d571a2059680" class="column-list"><div style="display:contents" dir="auto"><div id="21266ad2-9311-81f7-82fc-d42e5c57e9a1" style="width:50%" class="column"><div style="display:contents" dir="auto"><p id="21266ad2-9311-811b-9a43-c6d418c4dc9d" class=""><strong>SRNC: Semi-supervised learning for robust novel cell-type identification in single cell RNA sequencing data. </strong><em>BMC Genomics. </em>DOI: 10.1186/s12859-026-06386-3</p></div><div style="display:contents" dir="auto"><ul id="2b966ad2-9311-807d-b03d-c8ab9fd1b2b8" class="toggle"><li><details open=""><summary><em>Abstract: </em></summary><div style="display:contents" dir="auto"><p id="2b966ad2-9311-803c-a36f-f1f60e7415c5" class="">Classifying known and novel cell types in single-cell RNA sequencing (scRNA-seq) remains challenging. Supervised methods fail on unseen cell types, and rejection-based approaches underuse unlabeled data. We introduce <strong>SRNC (Semi-supervised learning for Robust Novel Cell-type identification)</strong>, which integrates self-supervised feature learning with semi-supervised classification to leverage both labeled and unlabeled data. Evaluated on six benchmark scRNA-seq datasets, SRNC outperforms state-of-the-art methods, including MARS, in ARI, F1-score, and precision. It robustly identifies rare and novel cell populations, generalizes across datasets, and handles class imbalances effectively. SRNC provides a powerful, adaptable tool for discovering new cell types, advancing precision medicine, and enhancing understanding of cellular heterogeneity.</p></div></details></li></ul></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-8048-ae14-dcaf2d8de457" class="image"><a href="image/image.png"><img style="width:505.3125px" src="image/image.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-8038-a9f9-ef5d487b37cb" class="image"><a href="image/image%201.png"><img style="width:528px" src="image/image%201.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2d666ad2-9311-80d4-b075-c65e2d6c5c0b" class=""><strong>genCell: a diffusion-based generative<br/>model for conditional single-cell RNA sequencing data<br/>generation.</strong><em> The Rencontres de Quy Nhon VIII: International Biology Conference 2025</em></p></div><div style="display:contents" dir="auto"><ul id="2d666ad2-9311-809f-8195-df93bc54cc54" class="toggle"><li><details open=""><summary>Abstract:</summary><div style="display:contents" dir="auto"><p id="2d666ad2-9311-804f-ba6f-db3fa11b38c5" class="">The increasing demand for high-quality, cost-effective single-cell RNA sequencing (scRNA-seq) data has prompted interest in generative AI models that can simulate high-fidelity synthetic cells to support data augmentation, biomedical research, and biological discovery. Recently, diffusion-based models have emerged as a powerful alternative to traditional AI architectures and have demonstrated superior performance in many domains such as image synthesis or large language models, due to their stability and sample quality. However, the application for biological data, especially omics data, for instance scRNA-seq data remains underexplored. In this study, we propose genCell, a diffusion-based generative model to generate high-resolution  scRNA-seq data with biological conditions. We then investigate how different prior assumptions impact the training dynamics and generative capabilities of diffusion models tailored for single-cell data. Furthermore we adopt genCell to generate scRNA-seq data of lung fibrosis disease. Evaluation is conducted using various statistical metrics and nonstatistical metrics, which quantify the similarity between real and synthetic data. Our findings demonstrate that genCell could generate scRNA-seq data closely identical to real gene expression data; moreover, the choice of prior can significantly influence the model behavior and the quality of generated data. These experiments confirm that genCell is a powerful tool for conditional generation real scRNA-seq data, contributes to a deeper understanding of how probabilistics assumptions in generative modeling affect downstream biological interpretations and offers a high potential for serious disease treatment discovery in single-cell level.</p></div></details></li></ul></div><div style="display:contents" dir="ltr"><figure id="2d666ad2-9311-8087-9102-cde87426dcc5" class="image"><a href="image/BIO2025_ICISE_genCell_(2)_page-0001.jpg"><img style="width:3000px" src="image/BIO2025_ICISE_genCell_(2)_page-0001.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2d666ad2-9311-805b-aaaf-d6190227cfb7"><div class="source"><a href="image/BIO2025_ICISE.pdf">BIO2025_ICISE.pdf</a></div></figure></div></div></div><div style="display:contents" dir="auto"><div id="21266ad2-9311-8111-9669-ff3cb66485df" style="width:50.00000000000002%" class="column"><div style="display:contents" dir="auto"><p id="27166ad2-9311-808e-81f9-e796b0f4d2cd" class=""><strong>Understanding Lung Fibrosis Progression through Conditional Generation of Single-cell Transcirptomes. </strong><em>USTH Student Scientific Research Competition 2025</em></p></div><div style="display:contents" dir="auto"><ul id="2b966ad2-9311-80cd-b496-ebc0763bc3c4" class="toggle"><li><details open=""><summary><em>Abstract: </em></summary><div style="display:contents" dir="auto"><p id="2b966ad2-9311-801b-bc98-d91e489863a0" class="">The growing availability of single-cell RNA sequencing (scRNA-seq) data has increased interest in generative models for synthetic cell simulation, aiding data augmentation, benchmarking, and biological discovery. Diffusion-based generative models offer advantages over traditional architectures like VAEs and GANs, but their application to single-cell data remains underexplored. Using benchmark datasets, including the Human Lung Cell Atlas (HLCA), we evaluate conditional data generation by Diffusion models and investigate how prior distribution assumptions affect generation quality. Our results show that Diffusion models outperform VAEs and GANs in conditional generation, and that prior choice significantly impacts model behavior and output quality. This work advances understanding of probabilistic assumptions in generative modeling and provides guidance for designing future single-cell simulation models.</p></div></details></li></ul></div><div style="display:contents" dir="ltr"><figure id="27166ad2-9311-802e-938f-cb1bb9395813"><div class="source"><a href="image/NCKH_Poster_(13).pdf">attachment:3b84a722-dd67-4c5f-ab00-4633c156c64a:NCKH_Poster_(13).pdf</a></div></figure></div><div style="display:contents" dir="auto"><p id="2d666ad2-9311-8001-a58e-ea28e4fc7da7" class="">
-</p></div></div></div></div></div><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2d666ad2-9311-8057-b3b4-d3600c8b97e6"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2d666ad2-9311-8092-b403-f2d3db14fccd" class="">Several Data Science/ Machine Learning projects can be found at my Github: <a href="https://github.com/chisquare09">https://github.com/chisquare09</a></p></div></div></figure></div><div style="display:contents" dir="auto"><hr id="21266ad2-9311-81fd-b19f-fee2d6031daa"/></div><div style="display:contents" dir="auto"><h1 id="21266ad2-9311-80fe-bef3-ea9c3f0609ce" class="">A challenge lover</h1></div><div style="display:contents" dir="auto"><blockquote id="21266ad2-9311-80e1-ba72-f7932ad223ab" class="">Every challenge is a chance to discovery more aspect about yourself. There is nothing called failure, just new lessons and new friends.<br/><br/>In 2024, I had a pleasure to work with my teammates from University of Trento (Italy) for Industrial AI Challenge to solve a problem about product optimization for Almax Mori Company. We had a chance to do a field trip to the company to understand the real situation and proposed our solution.</blockquote></div><div style="display:contents" dir="auto"><div id="2d666ad2-9311-80b9-8e7e-d6d8dd091098" class="column-list"><div style="display:contents" dir="auto"><div id="2d666ad2-9311-8058-9a15-d12f7441f3a6" style="width:37.5%" class="column"><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-8084-8b6b-e38a5dc43df3" class="image"><a href="image/2c6a08d74666f238ab77_(1).jpg"><img style="width:720px" src="image/2c6a08d74666f238ab77_(1).jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-804e-8204-fc0161f77b66" class="image"><a href="image/image%202.png"><img style="width:480px" src="image/image%202.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2d666ad2-9311-8093-a61c-e649b2da3c08" style="width:33.33333333333333%" class="column"><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-80ad-8961-c2d68838c83f" class="image"><a href="image/image%203.png"><img style="width:363.28125px" src="image/image%203.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="21266ad2-9311-80b6-8c63-d284d62d870a" class="image"><a href="image/IndustrialAI_(1).jpeg"><img style="width:336px" src="image/IndustrialAI_(1).jpeg"/></a></figure></div><div style="display:contents" dir="auto"><p id="2d666ad2-9311-80dc-9b25-ee3a1c5cfbd1" class="">
-</p></div></div></div><div style="display:contents" dir="auto"><div id="2d666ad2-9311-809d-bf7b-dec16e6b6449" style="width:29.166666666666647%" class="column"><div style="display:contents" dir="ltr"><figure id="21266ad2-9311-80eb-968b-d3430e7dde7b" class="image"><a href="image/IndustrialAI.jpeg"><img style="width:432px" src="image/IndustrialAI.jpeg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-80dc-a0b2-c68292331e5a" class="image"><a href="image/Thi_Van_Nguyen__Certificate_of_Attendance_-_Industrial_AI_Challenge_(1)-1.png"><img style="width:294.890625px" src="image/Thi_Van_Nguyen__Certificate_of_Attendance_-_Industrial_AI_Challenge_(1)-1.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><blockquote id="2d666ad2-9311-807d-84f8-fb5f150c6e49" class="">In 2025, I had the opportunity to participate in USTH Student Scientific Research Competition with the topic: <strong>Understanding Lung Fibrosis Progression through Conditional Generation of Single-cell Transcirptomes. </strong>The topic won the First Prize for its potential in Lung Fibrosis disease treatment in Vietnam.</blockquote></div><div style="display:contents" dir="auto"><div id="2d666ad2-9311-8045-b353-e3216ccbf517" class="column-list"><div style="display:contents" dir="auto"><div id="2d666ad2-9311-80d5-b21d-fa06fc707488" style="width:43.75%" class="column"><div style="display:contents" dir="ltr"><figure id="2d666ad2-9311-80eb-a170-eab78ae55186" class="image"><a href="image/f1a1c010ba43301d6952_(1).jpg"><img style="width:2568px" src="image/f1a1c010ba43301d6952_(1).jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="2d666ad2-9311-80a1-b038-d1ee861975dd" class="">
-</p></div></div></div><div style="display:contents" dir="auto"><div id="2d666ad2-9311-80f1-8edd-d9aa12e307bf" style="width:56.25%" class="column"><div style="display:contents" dir="ltr"><figure id="2d666ad2-9311-80da-ad8c-e33bd838c8f4" class="image"><a href="image/6e97262b5f78d5268c69_(1).jpg"><img style="width:784.7500610351562px" src="image/6e97262b5f78d5268c69_(1).jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="2d666ad2-9311-8011-bf6e-c6a5b7b4fe08" class="">
-</p></div></div></div></div></div><div style="display:contents" dir="auto"><hr id="21266ad2-9311-807c-be07-fc39579d917a"/></div><div style="display:contents" dir="auto"><h1 id="21266ad2-9311-816d-ba28-dcc71dbdfef7" class="">An academic mentor/ supporter</h1></div><div style="display:contents" dir="auto"><blockquote id="21266ad2-9311-808d-a327-d4240048b936" class="">Beside foods, I believe Math and Science can also connect people. It has been a fortune for me to be a part of this team in 3 years. <br/>I am grateful for every experience and believe received from my university friends .</blockquote></div><div style="display:contents" dir="auto"><h3 id="21266ad2-9311-81a5-b8ef-f9e409b421e4" class="">✏️ Lecture for USTH Learning Support Club</h3></div><div style="display:contents" dir="auto"><p id="21266ad2-9311-8167-9673-e48e0da63ffe" class="">Every semester, we organized review classes (online/offline) and study materials. Our target students are first year. We also expand for second and third year’s friends, who need support.</p></div><div style="display:contents" dir="auto"><p id="21266ad2-9311-80a0-ba7b-f0c424677b0f" class="">We focus on Mathematics and Information Technology subjects, including Linear Algebra, Calculus, Basic programming, Algorithm and mores. </p></div><div style="display:contents" dir="auto"><div id="2d666ad2-9311-8030-9478-dafffc5c3bda" class="column-list"><div style="display:contents" dir="auto"><div id="2d666ad2-9311-805a-9dab-e1d4052385f4" style="width:33.33333333333333%" class="column"><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-8069-9a17-c92f3f012d51" class="image"><a href="image/image%204.png"><img style="width:659.96875px" src="image/image%204.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2d666ad2-9311-80bf-b118-e01d2a3f07d9" style="width:41.666666666666664%" class="column"><div style="display:contents" dir="ltr"><figure id="21266ad2-9311-80bd-8f87-dd4c1072e059" class="image"><a href="image/LS.jpg"><img style="width:422.15625px" src="image/LS.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="21266ad2-9311-8010-9909-e08bed31212e" class="image"><a href="image/tutorLS.jpg"><img style="width:432px" src="image/tutorLS.jpg"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2d666ad2-9311-8041-9983-e1fa18334fc3" style="width:25.000000000000007%" class="column"><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-80ff-aa30-d44149038f9b" class="image"><a href="image/image%205.png"><img style="width:378.734375px" src="image/image%205.png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2d666ad2-9311-80df-a318-fca657cbf96a" class="image"><a href="image/c7793b691fadcbf392bc.jpg"><img style="width:2560px" src="image/c7793b691fadcbf392bc.jpg"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><div id="2d666ad2-9311-8028-ab51-c7d59ab65650" class="column-list"><div style="display:contents" dir="auto"><div id="2d666ad2-9311-801a-a4a6-e76c160f84d5" style="width:50%" class="column"><div style="display:contents" dir="auto"><h3 id="21266ad2-9311-800f-84cd-eac5d5d603fb" class="">🎙️Club Fair</h3></div><div style="display:contents" dir="auto"><p id="21266ad2-9311-803b-be64-fe09d33812d2" class="">We inspire university students every years in the University Club Fair day, about studying methodology and how to get used to the university life. </p></div><div style="display:contents" dir="auto"><div id="2d666ad2-9311-8030-b34e-e51559524066" class="column-list"><div style="display:contents" dir="auto"><div id="2d666ad2-9311-8004-b369-fedd049bd1e2" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="21266ad2-9311-8035-92e0-c6d8ccc6455f" class="image"><a href="image/LSClubfair.jpg"><img style="width:432px" src="image/LSClubfair.jpg"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2d666ad2-9311-803a-8493-e51d5b278917" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-8008-8e2d-d8f15a37ebd2" class="image"><a href="image/image%206.png"><img style="width:432px" src="image/image%206.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2d666ad2-9311-80a6-bc28-da8ee877961f" class="">
-</p></div></div></div></div></div></div></div><div style="display:contents" dir="auto"><div id="2d666ad2-9311-8021-8746-eebe96022fc1" style="width:49.99999999999999%" class="column"><div style="display:contents" dir="auto"><h3 id="21366ad2-9311-809a-baa8-fa7b85566a13" class="">📖 Nonstop discussion to improve the quality of teaching</h3></div><div style="display:contents" dir="auto"><p id="21266ad2-9311-80a5-b602-fb8f6ae92738" class="">To achieve best quality of teaching, we have weekly discussions. We believe  looking forward and improvement is the key for sustainable education. </p></div><div style="display:contents" dir="auto"><div id="2d666ad2-9311-80b1-8bfb-d3c7ad0520e4" class="column-list"><div style="display:contents" dir="auto"><div id="2d666ad2-9311-80f4-9691-ef48929a5f0b" style="width:106.25%" class="column"><div style="display:contents" dir="ltr"><figure id="21266ad2-9311-8064-898a-e86d6243fe8f" class="image"><a href="image/50fb9a9bb15f65013c4e.jpg"><img style="width:768px" src="image/50fb9a9bb15f65013c4e.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="2d666ad2-9311-8004-b09d-dd13f9e56c69" class="">
-</p></div></div></div><div style="display:contents" dir="auto"><div id="2d666ad2-9311-80ee-a4ab-f885b91dc13a" style="width:75%" class="column"><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-804a-a9b6-c45fe88da7e1" class="image"><a href="image/475802664_641914545011284_790442092303114118_n.jpg"><img style="width:432px" src="image/475802664_641914545011284_790442092303114118_n.jpg"/></a></figure></div></div></div></div></div></div></div></div></div><div style="display:contents" dir="auto"><blockquote id="21366ad2-9311-807d-9b87-f3a7d55c6529" class="">Beside USTH Learning Support, I spent my 2 summers for Hanoi Mathematical Modelling Contest - 2024 and PiMA Summer Camp - 2025 <br/>(Project in Mathematics and Application), to mentor and support Vietnamese high school/university student who also love Mathematics and challenges. <br/>Thanks to these organizations, I have a chance to meet more talented and passionate friends from all around the Viet Nam country.</blockquote></div><div style="display:contents" dir="auto"><div id="2d666ad2-9311-805b-bb3b-ca732c8b9d39" class="column-list"><div style="display:contents" dir="auto"><div id="2d666ad2-9311-80fa-a12a-f8949ec92c10" style="width:25%" class="column"><div style="display:contents" dir="ltr"><figure id="27166ad2-9311-8039-8fae-d73956f0329b" class="image"><a href="image/531211643_1257957952794338_7378414863677044324_n.jpg"><img style="width:697.46875px" src="image/531211643_1257957952794338_7378414863677044324_n.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="2d666ad2-9311-8089-b6a2-e938731c781f" class="">
-</p></div><div style="display:contents" dir="ltr"><figure id="27166ad2-9311-80b0-b3f3-fa916e71af69" class="image"><a href="image/image%207.png"><img style="width:697.5625610351562px" src="image/image%207.png"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2d666ad2-9311-8009-bf0f-d6e5fa105efc" style="width:37.49999999999999%" class="column"><div style="display:contents" dir="ltr"><figure id="27166ad2-9311-8064-8138-d44ec4d27993" class="image"><a href="image/DSC00648.png"><img style="width:7040px" src="image/DSC00648.png"/></a></figure></div><div style="display:contents" dir="auto"><p id="2d666ad2-9311-80c7-a2c4-ec595d7405fb" class="">
-</p></div><div style="display:contents" dir="ltr"><figure id="27166ad2-9311-80eb-bc8d-dd80d0485dc9" class="image"><a href="image/531016109_1257958066127660_3258154480876653098_n.jpg"><img style="width:697.5px" src="image/531016109_1257958066127660_3258154480876653098_n.jpg"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="2d666ad2-9311-80b2-a3c6-c932ad1bf301" style="width:37.500000000000014%" class="column"><div style="display:contents" dir="ltr"><figure id="27166ad2-9311-80ec-bb42-cec030b17adb" class="image"><a href="image/DSCF1864.jpg"><img style="width:288px" src="image/DSCF1864.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="2d666ad2-9311-8031-a833-cf5b6faaa960" class="">
-</p></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-8004-b9e3-ebdc58b4cea8" class="image"><a href="image/image%208.png"><img style="width:720px" src="image/image%208.png"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><hr id="21266ad2-9311-819d-b105-f68c3648bee3"/></div><div style="display:contents" dir="auto"><h1 id="21266ad2-9311-8100-9a06-cec9286ae60e" class="">A traveler</h1></div><div style="display:contents" dir="auto"><blockquote id="21266ad2-9311-80eb-ab02-f3d94d2830f3" class="">Our ancestors said<em> “A day&#x27;s journey provides a basket full of knowledge” </em>. So I follow their advice, and received many lessons outside the school. <br/>The world is breathtaking beauty. I want to share these moment to who has been patient until now ^^</blockquote></div><div style="display:contents" dir="auto"><div id="30466ad2-9311-80d8-8f26-fec7cc3c5fbb" class="column-list"><div style="display:contents" dir="auto"><div id="30466ad2-9311-805d-b63a-e8445adab44d" style="width:20%" class="column"><div style="display:contents" dir="auto"><p id="21366ad2-9311-8062-89bf-d35d885651a3" class="">🇮🇹 Trento, Italy </p></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-804a-9ab5-fbe1f7c0ef9e" class="image"><a href="image/00f36cdd336f8731de7e.jpg"><img style="width:577.5px" src="image/00f36cdd336f8731de7e.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="30466ad2-9311-80e5-800d-f7c05f4a4cbf" class="">
-</p></div><div style="display:contents" dir="auto"><p id="21366ad2-9311-807a-afc1-f241c7b504b2" class="">🇮🇹 Peschiera de Garda, Italy</p></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-8050-bfea-f6cbca4889f0" class="image"><a href="image/dbc04a281b9aafc4f68b.jpg"><img style="width:409px" src="image/dbc04a281b9aafc4f68b.jpg"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="30466ad2-9311-80ef-aacb-e05d92a5cc3e" style="width:20%" class="column"><div style="display:contents" dir="auto"><p id="21366ad2-9311-80a4-b55e-c14a1555d42d" class="">🇮🇹 Verona, Italy</p></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-80ca-8d04-db77ef6aee0d" class="image"><a href="image/54dfa353d8e16cbf35f0.jpg"><img style="width:577.5px" src="image/54dfa353d8e16cbf35f0.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="30466ad2-9311-8016-afbd-eb0e7e65ff32" class="">
-</p></div><div style="display:contents" dir="auto"><p id="21366ad2-9311-80c5-a4ff-c093ff45ffdf" class="">🇩🇪 Cologne, Germany</p></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-803b-bff0-c99cc46dc15d" class="image"><a href="image/203be66a9fd82b8672c9.jpg"><img style="width:432px" src="image/203be66a9fd82b8672c9.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="30466ad2-9311-8077-aa2d-e140afed95e4" class="">
-</p></div></div></div><div style="display:contents" dir="auto"><div id="30466ad2-9311-80bc-b659-f0fb6d2a50eb" style="width:20%" class="column"><div style="display:contents" dir="auto"><p id="21366ad2-9311-80eb-b53a-d73136ca4150" class="">🇮🇹 Milano, Italy</p></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-804f-a9aa-d8b578979dbe" class="image"><a href="image/54f2df60a7d2138c4ac3.jpg"><img style="width:577.5px" src="image/54f2df60a7d2138c4ac3.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="30466ad2-9311-80be-b532-e692d9da74d4" class="">
-</p></div><div style="display:contents" dir="auto"><p id="21366ad2-9311-80a8-a2e4-f8e51c8ae020" class="">🇦🇹 Innsbruck, Austria</p></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-80f2-ab08-f57ce9f69945" class="image"><a href="image/924ce413c2a276fc2fb3_(1).jpg"><img style="width:384px" src="image/924ce413c2a276fc2fb3_(1).jpg"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="30466ad2-9311-8000-92f3-d453f0dc61a5" style="width:20%" class="column"><div style="display:contents" dir="auto"><p id="21366ad2-9311-8046-89db-ed10c2e84c7e" class="">🇮🇹 Val di Funes, Dolomites, Italy</p></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-8049-a229-d1053d8d9edb" class="image"><a href="image/681b737e50cfe491bdde_(1).jpg"><img style="width:384px" src="image/681b737e50cfe491bdde_(1).jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="30466ad2-9311-80e4-a7fc-e4947cc1ccbb" class="">
-</p></div><div style="display:contents" dir="auto"><p id="21366ad2-9311-806b-bba0-ce2930deeb2f" class="">🇩🇪Hof, Germany</p></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-80b3-a435-ce2325bac98c" class="image"><a href="image/dd943acd1f7cab22f26d_(1).jpg"><img style="width:768px" src="image/dd943acd1f7cab22f26d_(1).jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="21366ad2-9311-8081-9808-d95c6d5dd18b" class="">🇩🇪 Berlin, Germany</p></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-8034-bd78-cb05f1cd80d8" class="image"><a href="image/a9a78559efe45bba02f5.jpg"><img style="width:2560px" src="image/a9a78559efe45bba02f5.jpg"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="30466ad2-9311-8098-a1a8-e1cb18214a6d" style="width:20%" class="column"><div style="display:contents" dir="auto"><p id="21366ad2-9311-80c6-8bbe-f149c7fa80ff" class="">🇮🇹 Lago di Garda, Italy</p></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-8027-b3f2-e25911142b99" class="image"><a href="image/8326765b0ce9b8b7e1f8.jpg"><img style="width:409px" src="image/8326765b0ce9b8b7e1f8.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="30466ad2-9311-80f0-8fcd-e4f11f8e419c" class="">
-</p></div><div style="display:contents" dir="auto"><p id="21366ad2-9311-8014-b2e3-cf72b160505a" class="">🇩🇪 Hamburg, German</p></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-80fa-8509-dd492ba3cac8" class="image"><a href="image/7b9a49823f308b6ed221.jpg"><img style="width:2560px" src="image/7b9a49823f308b6ed221.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="21366ad2-9311-8008-a42f-fdbccc675b57" class="">🇩🇪 Dresden, German</p></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-8065-b4a0-e23ed22da5d8" class="image"><a href="image/fb97b3d3c761733f2a70.jpg"><img style="width:480px" src="image/fb97b3d3c761733f2a70.jpg"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><hr id="21366ad2-9311-800c-aad5-c130196bb2c5"/></div><div style="display:contents" dir="auto"><h1 id="21266ad2-9311-81b7-bf7e-c9942989412d" class="">A (beginner) artist</h1></div><div style="display:contents" dir="auto"><blockquote id="21266ad2-9311-8051-939a-fb820a525ff3" class="">Art is meditation, it needs patient, quiet and listen to yourself. There is no beauty or ugly art, every efforts is art, no matter how.</blockquote></div><div style="display:contents" dir="auto"><div id="21366ad2-9311-8013-a658-da4df51570a4" class="column-list"><div style="display:contents" dir="auto"><div id="21366ad2-9311-808e-82b2-ee18539e0d34" style="width:83.33333333333333%" class="column"><div style="display:contents" dir="auto"><p id="21266ad2-9311-80e3-a70a-d6640cd38d32" class="">🎨 Some of my paintings</p></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-801b-92d3-cf2f4a3235b6" class="image"><a href="image/2fcfc21be4a950f709b8.jpg"><img style="width:432px" src="image/2fcfc21be4a950f709b8.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-8002-a49e-e579da7d157e" class="image"><a href="image/5a2926b47806cc589517.jpg"><img style="width:409px" src="image/5a2926b47806cc589517.jpg"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="21366ad2-9311-801d-b2aa-c08d9d5d21b8" style="width:112.50000000000004%" class="column"><div style="display:contents" dir="auto"><p id="27866ad2-9311-8063-a478-e0c7fd08074e" class="">
-</p></div><div style="display:contents" dir="ltr"><figure id="30466ad2-9311-803b-9dfa-ff7be215dde7" class="image"><a href="image/92e45d49e753690d3042.jpg"><img style="width:2566px" src="image/92e45d49e753690d3042.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2d666ad2-9311-80e0-9363-c7f51bdeeb5d" class="image"><a href="image/9526e0b2078d88d3d19c.jpg"><img style="width:2560px" src="image/9526e0b2078d88d3d19c.jpg"/></a></figure></div><div style="display:contents" dir="auto"><p id="27866ad2-9311-8020-b150-f2ffdf7ba69e" class="">Check out my Spotify playlists, maybe you can find some joys here ^^</p></div><div style="display:contents" dir="auto"><div id="27866ad2-9311-8021-9ed1-e45ba77164ce" class="column-list"><div style="display:contents" dir="auto"><div id="27866ad2-9311-8022-9fc9-caa674afd3b8" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="27866ad2-9311-8002-936f-d5fea4ae3f4c" class="image"><a href="image/3f8256bfc79c4dc2148d.jpg"><img style="width:517.09375px" src="image/3f8256bfc79c4dc2148d.jpg"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="27866ad2-9311-8028-976e-c8b8c64d80e1" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="27866ad2-9311-8011-beb9-da5e66f59369" class="image"><a href="image/b406af8230a1baffe3b0.jpg"><img style="width:292.265625px" src="image/b406af8230a1baffe3b0.jpg"/></a></figure></div></div></div></div></div></div></div><div style="display:contents" dir="auto"><div id="21366ad2-9311-8033-84bd-f10e0100fae1" style="width:54.16666666666667%" class="column"><div style="display:contents" dir="auto"><p id="21266ad2-9311-8012-a59a-f2abae47ce93" class="">📹 My first vlog: A daily life of an exchange student</p></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-805b-8abd-f6a335e68a34"><div class="source"><a href="image/AQOQsL1cIlJsrnceSihoTL3qECXa5UZfmflQT9UKdC9JKu4dGKceMCBFqbDKrTCtrPB0KQmD4OQmPO2yGQAyy08GPBlh3f4h8Ha2Tvk.mp4">attachment:5e61aa21-cea7-4df2-91d7-358e532df8e5:AQOQsL1cIlJsrnceSihoTL3qECXa5UZfmflQT9UKdC9JKu4dGKceMCBFqbDKrTCtrPB0KQmD4OQmPO2yGQAyy08GPBlh3f4h8Ha2Tvk.mp4</a></div></figure></div><div style="display:contents" dir="auto"><p id="21266ad2-9311-80c2-b6a3-ebe0c5fd2588" class="">🎶 And first music cover</p></div><div style="display:contents" dir="auto"><p id="21366ad2-9311-8021-8619-de12e3d40d7a" class=""><em>Song: To The Moon - hooligan</em></p></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-8057-81f4-e6d4e8067dfb"><div class="source"><a href="image/tothemoon-01_(online-video-cutter.com)_(1).mp4">attachment:f72f05fa-0e50-4892-a888-f26a0e3fda17:tothemoon-01_(online-video-cutter.com)_(1).mp4</a></div></figure></div><div style="display:contents" dir="auto"><p id="21366ad2-9311-80c9-86ff-c8b797402b55" class="">
-</p></div></div></div></div></div><div style="display:contents" dir="auto"><hr id="21266ad2-9311-81f1-8705-d5cfa2d581ca"/></div><div style="display:contents" dir="auto"><h1 id="21266ad2-9311-81fa-bd82-dfd3838806d2" class="">A friend and a child</h1></div><div style="display:contents" dir="auto"><blockquote id="21366ad2-9311-8070-9960-c11666a4e0a4" class="">After all, I am just a children, who loves having fun and lucky enough to always have good friends, mentors and teachers around the world on every journey. <br/>I am grateful to meet them in my life. They have made who I am today and have been my second family when I was far from home. </blockquote></div><div style="display:contents" dir="auto"><div id="30466ad2-9311-80a1-bb5f-df53513ffd84" class="column-list"><div style="display:contents" dir="auto"><div id="30466ad2-9311-80b0-abce-cf11436723b5" style="width:20%" class="column"><div style="display:contents" dir="ltr"><figure id="21266ad2-9311-8103-8e1f-f607bd0fa2c9" class="image" style="text-align:center"><a href="image/4b4bdb28879933c76a88_(1).jpg"><img style="width:577.484375px" src="image/4b4bdb28879933c76a88_(1).jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="21266ad2-9311-81d9-b97c-fbeb26828b21" class="image" style="text-align:center"><a href="image/4a1c305219e3adbdf4f2_(1).jpg"><img style="width:2560px" src="image/4a1c305219e3adbdf4f2_(1).jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="21266ad2-9311-819e-8099-f55cf03b7f9f" class="image" style="text-align:center"><a href="image/649480aaab1b1f45460a_(1).jpg"><img style="width:2558px" src="image/649480aaab1b1f45460a_(1).jpg"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="30466ad2-9311-80fe-8107-d2426d7540c8" style="width:20%" class="column"><div style="display:contents" dir="ltr"><figure id="27166ad2-9311-807a-85d0-f8ed7cfebf2e" class="image"><a href="image/edadaa92e3c1699f30d0.jpg"><img style="width:1920px" src="image/edadaa92e3c1699f30d0.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27166ad2-9311-805a-bd9c-faeadba45015" class="image"><a href="image/46edf9b8b0eb3ab563fa.jpg"><img style="width:1920px" src="image/46edf9b8b0eb3ab563fa.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-802e-9486-f0c78be7a4a7" class="image"><a href="image/f17a98ddf22a2e74773b.jpg"><img style="width:577.5px" src="image/f17a98ddf22a2e74773b.jpg"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="30466ad2-9311-8042-bdee-ed2e56e78cfb" style="width:20%" class="column"><div style="display:contents" dir="ltr"><figure id="28366ad2-9311-8048-ba69-c8ae4b97eb24" class="image"><a href="image/9c9a670cb4a83ef667b9.jpg"><img style="width:1918px" src="image/9c9a670cb4a83ef667b9.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="28366ad2-9311-80be-a92b-f272ee5443f3" class="image"><a href="image/4d5730e0e344691a3055.jpg"><img style="width:1170px" src="image/4d5730e0e344691a3055.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27166ad2-9311-8038-abed-dc3e19fe1e54" class="image"><a href="image/fe1337547e07f459ad16.jpg"><img style="width:2556px" src="image/fe1337547e07f459ad16.jpg"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="30466ad2-9311-801a-8390-ceca89a779ff" style="width:20%" class="column"><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-80fb-805f-deb8205e8185" class="image"><a href="image/b46041661cd7a889f1c6.jpg"><img style="width:577.5px" src="image/b46041661cd7a889f1c6.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="27166ad2-9311-80c4-845e-fef5dee4e2fd" class="image"><a href="image/c775322d7b7ef120a86f.jpg"><img style="width:490.515625px" src="image/c775322d7b7ef120a86f.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-8019-b197-e2d8e535dc2e" class="image"><a href="image/d9a576376538bb66e229.jpg"><img style="width:4095px" src="image/d9a576376538bb66e229.jpg"/></a></figure></div></div></div><div style="display:contents" dir="auto"><div id="30466ad2-9311-8007-8089-fd2b20112c21" style="width:20%" class="column"><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-803d-a449-f8ec9e12f6d9" class="image"><a href="image/ea91b7d5e664523a0b75_(1).jpg"><img style="width:577.5px" src="image/ea91b7d5e664523a0b75_(1).jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-8048-b1dd-e016692e1ca9" class="image"><a href="image/6be674afb114054a5c05.jpg"><img style="width:2560px" src="image/6be674afb114054a5c05.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-80bd-a604-de874059ee5e" class="image"><a href="image/3f40fd643bdf8f81d6ce.jpg"><img style="width:697.5535888671875px" src="image/3f40fd643bdf8f81d6ce.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="21366ad2-9311-80b5-871d-c26c4e8e061e" class="image"><a href="image/90299e5dd2ec66b23ffd_(1).jpg"><img style="width:768px" src="image/90299e5dd2ec66b23ffd_(1).jpg"/></a></figure></div></div></div></div></div><div style="display:contents" dir="auto"><p id="2d666ad2-9311-80a7-a738-f39e7454bee8" class="">
-</p></div><div style="display:contents" dir="auto"><h1 id="21266ad2-9311-81cb-900b-c36971346e84" class="block-color-blue"><strong>Contact Information:</strong></h1></div><div style="display:contents" dir="auto"><hr id="21266ad2-9311-81d8-bb07-ddab492e05d6"/></div><div style="display:contents" dir="auto"><div id="27c66ad2-9311-801d-8258-f8bac5ebdc27" class="column-list"><div style="display:contents" dir="auto"><div id="27c66ad2-9311-804c-a65d-ee2e262d51d5" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="21266ad2-9311-81f2-a040-e58d7596113a"><div style="font-size:1.5em"><span class="icon">✉️</span></div><div style="width:100%">Email: vannguyen.workspace@gmail.com</div></figure></div></div></div><div style="display:contents" dir="auto"><div id="27c66ad2-9311-8094-b7aa-fb6ea48a77ae" style="width:100%" class="column"><div style="display:contents" dir="auto"><p id="27c66ad2-9311-802b-8c2e-d02709248fd2" class="">
-</p></div></div></div></div></div><div style="display:contents" dir="auto"><div id="27c66ad2-9311-80cd-b7a2-edf4d81de707" class="column-list"><div style="display:contents" dir="auto"><div id="27c66ad2-9311-802c-9e51-d8a0fe60931d" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="21266ad2-9311-8129-aad3-f9dab34d1373"><div style="font-size:1.5em"><img class="icon" src="image/LinkedIn_icon.svg.png"/></div><div style="width:100%">Linkedin: <a href="https://www.linkedin.com/in/vannt189/">https://www.linkedin.com/in/vannt189/</a></div></figure></div></div></div><div style="display:contents" dir="auto"><div id="27c66ad2-9311-80f7-ac23-defa3a27e418" style="width:100%" class="column"><div style="display:contents" dir="auto"><p id="27c66ad2-9311-8092-8d87-c6cf701772e7" class="">
-</p></div></div></div></div></div><div style="display:contents" dir="auto"><hr id="21266ad2-9311-81cc-adf9-f06d65d54849"/></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Van Nguyen - AI Developer & Researcher</title>
+  <meta name="description" content="Van Nguyen - AI Developer at Vinamilk, Bioinformatics Researcher">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Van Nguyen</a>
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
+          <li class="nav-item"><a class="nav-link" href="#challenges">Challenges</a></li>
+          <li class="nav-item"><a class="nav-link" href="#mentoring">Mentoring</a></li>
+          <li class="nav-item"><a class="nav-link" href="#travel">Travel</a></li>
+          <li class="nav-item"><a class="nav-link" href="#art">Art</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://github.com/chisquare09" target="_blank"><i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section" style="margin-top: 70px; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('image/hero_bg.jpeg'); background-size: cover; background-position: center; background-color: #1a5276;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-3 text-center">
+          <img src="image/profile_1.jpg" alt="Van Nguyen" class="profile-img mb-3">
+        </div>
+        <div class="col-md-9 text-start">
+          <h1>Van Nguyen</h1>
+          <p class="subtitle">AI Developer | Bioinformatics Researcher | Lifelong Learner</p>
+          <p>Est 2004</p>
+          <blockquote class="text-white" style="border-left-color: white;">
+            I believe education and patient are the solution for everything.<br>
+            Thank you for spending your precious time. I hope to bring you some fresh air after a long day.
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p>I am currently an <strong>AI Developer</strong></p>
+      <h5 class="mt-4 mb-3">My hobbies are:</h5>
+      <div class="achievement-item"><i class="fas fa-award"></i><span>Learning a new science topic.</span></div>
+      <div class="achievement-item"><i class="fas fa-globe-europe"></i><span>Exploring new cultures and traveling.</span></div>
+      <div class="achievement-item"><i class="fas fa-trophy"></i><span>Staying at home and enjoying quiet time.</span></div>
+      <h2 class="mt-5" style="color: var(--primary-color);"><strong>Achievement and awards are important, but it just a very small part in my growing journey. I am a young person, and …</strong></h2>
+    </div>
+  </section>
+
+  <!-- Research Section -->
+  <section id="research">
+    <div class="container">
+      <h2 class="section-title">A junior researcher</h2>
+      <blockquote>Everybody has to start somewhere. Even an expertise.<br>
+      During 3 years of my Bachelor degree, beside learning from university courses, the curious in science has lead me to multiple scientific research topics.<br>
+      My main research interest are Bioinformatics and Generative AI. But I believe there is no boundary in science, as long as we still curious, we can develop in any science sectors.</blockquote>
+      <div class="mt-4">
+        <div class="card mb-4">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <a href="https://doi.org/10.1186/s12859-026-06386-3" target="_blank">
+                <img src="image/research_srnc_1.png" class="img-fluid rounded-start h-100" style="object-fit:contain; background:#f8f9fa;" alt="SRNC">
+              </a>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><a href="https://doi.org/10.1186/s12859-026-06386-3" target="_blank">SRNC: Semi-supervised learning for robust novel cell-type identification in single cell RNA sequencing data.</a></h5>
+                <p class="card-text"><em>BMC Bioinformatics.</em> DOI: 10.1186/s12859-026-06386-3</p>
+                <p class="small mt-2">Classifying known and novel cell types in single-cell RNA sequencing (scRNA-seq) remains challenging. Supervised methods fail on unseen cell types, and rejection-based approaches underuse unlabeled data. We introduce <strong>SRNC (Semi-supervised learning for Robust Novel Cell-type identification)</strong>, which integrates self-supervised feature learning with semi-supervised classification to leverage both labeled and unlabeled data. Evaluated on six benchmark scRNA-seq datasets, SRNC outperforms state-of-the-art methods, including MARS, in ARI, F1-score, and precision. It robustly identifies rare and novel cell populations, generalizes across datasets, and handles class imbalances effectively. SRNC provides a powerful, adaptable tool for discovering new cell types, advancing precision medicine, and enhancing understanding of cellular heterogeneity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <a href="image/genCell_slide.pdf" target="_blank">
+                <img src="image/research_gencell_1.jpg" class="img-fluid rounded-start h-100" style="object-fit:contain; background:#f8f9fa;" alt="genCell">
+              </a>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><a href="image/genCell_slide.pdf" target="_blank">genCell: a diffusion-based generative model for conditional single-cell RNA sequencing data generation.</a></h5>
+                <p class="card-text"><em>The Rencontres de Quy Nhon VIII: International Biology Conference 2025</em></p>
+                <p class="small mt-2">The increasing demand for high-quality, cost-effective single-cell RNA sequencing (scRNA-seq) data has prompted interest in generative AI models that can simulate high-fidelity synthetic cells to support data augmentation, biomedical research, and biological discovery. Recently, diffusion-based models have emerged as a powerful alternative to traditional AI architectures and have demonstrated superior performance in many domains such as image synthesis or large language models, due to their stability and sample quality. However, the application for biological data, especially omics data, for instance scRNA-seq data remains underexplored. In this study, we propose genCell, a diffusion-based generative model to generate high-resolution scRNA-seq data with biological conditions. Our findings demonstrate that genCell could generate scRNA-seq data closely identical to real gene expression data; moreover, the choice of prior can significantly influence the model behavior and the quality of generated data.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <a href="image/genCell_poster.pdf" target="_blank">
+                <img src="image/research_lungfibrosis_1.png" class="img-fluid rounded-start h-100" style="object-fit:contain; background:#f8f9fa;" alt="Lung Fibrosis">
+              </a>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><a href="image/genCell_poster.pdf" target="_blank">Understanding Lung Fibrosis Progression through Conditional Generation of Single-cell Transcirptomes.</a></h5>
+                <p class="card-text"><em>USTH Student Scientific Research Competition 2025</em></p>
+                <p class="small mt-2">The growing availability of single-cell RNA sequencing (scRNA-seq) data has increased interest in generative models for synthetic cell simulation, aiding data augmentation, benchmarking, and biological discovery. Diffusion-based generative models offer advantages over traditional architectures like VAEs and GANs, but their application to single-cell data remains underexplored. Using benchmark datasets, including the Human Lung Cell Atlas (HLCA), we evaluate conditional data generation by Diffusion models and investigate how prior distribution assumptions affect generation quality. Our results show that Diffusion models outperform VAEs and GANs in conditional generation, and that prior choice significantly impacts model behavior and output quality. This work advances understanding of probabilistic assumptions in generative modeling and provides guidance for designing future single-cell simulation models.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="callout bg-light p-3 rounded mt-3">
+        <p><i class="fas fa-lightbulb me-2"></i>Several Data Science/ Machine Learning projects can be found at my Github: <a href="https://github.com/chisquare09">https://github.com/chisquare09</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenges Section -->
+  <section id="challenges">
+    <div class="container">
+      <h2 class="section-title">A challenge lover</h2>
+      <blockquote>Every challenge is a chance to discovery more aspect about yourself. There is nothing called failure, just new lessons and new friends.<br><br>
+      In 2024, I had a pleasure to work with my teammates from University of Trento (Italy) for Industrial AI Challenge to solve a problem about product optimization for Almax Mori Company. We had a chance to do a field trip to the company to understand the real situation and proposed our solution.</blockquote>
+      <div class="row mt-4">
+        <div class="col-lg-4 mb-4" style="height:300px;">
+          <img src="image/challenge_industrial_1.jpg" class="rounded shadow" style="height:100%; width:100%; object-fit:cover;" alt="Industrial AI">
+        </div>
+        <div class="col-lg-4 mb-4" style="height:300px;">
+          <img src="image/challenge_industrial_2.jpeg" class="rounded shadow" style="height:100%; width:100%; object-fit:cover;" alt="Industrial AI">
+        </div>
+        <div class="col-lg-4 mb-4" style="height:300px;">
+          <img src="image/challenge_industrial_3.png" class="rounded shadow" style="height:100%; width:100%; object-fit:contain; background:#fff;" alt="Certificate">
+        </div>
+      </div>
+      <blockquote class="mt-4">In 2025, I had the opportunity to participate in USTH Student Scientific Research Competition with the topic: <strong>Understanding Lung Fibrosis Progression through Conditional Generation of Single-cell Transcirptomes.</strong> The topic won the First Prize for its potential in Lung Fibrosis disease treatment in Vietnam.</blockquote>
+      <div class="row mt-4">
+        <div class="col-lg-6 mb-4" style="height:400px;">
+          <img src="image/challenge_usth_1.jpg" class="rounded shadow" style="height:100%; width:100%; object-fit:cover; object-position:top;" alt="USTH Competition">
+        </div>
+        <div class="col-lg-6 mb-4" style="height:400px;">
+          <img src="image/challenge_usth_2.jpg" class="rounded shadow" style="height:100%; width:100%; object-fit:cover;" alt="USTH Competition">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mentoring Section -->
+  <section id="mentoring">
+    <div class="container">
+      <h2 class="section-title">An academic mentor/ supporter</h2>
+      <blockquote>Beside foods, I believe Math and Science can also connect people. It has been a fortune for me to be a part of this team in 3 years.<br>
+      I am grateful for every experience and believe received from my university friends.</blockquote>
+      
+      <div class="mt-4">
+        <div class="card mb-4">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <div id="carouselLecture" class="carousel slide" >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="image/mentor_lecture_1.jpg" class="d-block w-100 rounded-start" style="height:250px; object-fit:cover;" alt="LS">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="image/mentor_lecture_2.png" class="d-block w-100 rounded-start" style="height:250px; object-fit:cover;" alt="LS">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="image/mentor_lecture_3.jpg" class="d-block w-100 rounded-start" style="height:250px; object-fit:cover;" alt="LS">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="image/mentor_lecture_4.png" class="d-block w-100 rounded-start" style="height:250px; object-fit:cover;" alt="LS">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="image/mentor_lecture_5.jpg" class="d-block w-100 rounded-start" style="height:250px; object-fit:cover;" alt="LS">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-mdb-target="#carouselLecture" data-mdb-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-mdb-target="#carouselLecture" data-mdb-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">✏️ Lecture for USTH Learning Support Club</h5>
+                <p>Every semester, we organized review classes (online/offline) and study materials. Our target students are first year. We also expand for second and third year's friends, who need support.</p>
+                <p>We focus on Mathematics and Information Technology subjects, including Linear Algebra, Calculus, Basic programming, Algorithm and mores.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <div id="carouselClubFair" class="carousel slide" >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="image/mentor_clubfair_1.jpg" class="d-block w-100 rounded-start" style="height:250px; object-fit:cover;" alt="Club Fair">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="image/mentor_clubfair_2.png" class="d-block w-100 rounded-start" style="height:250px; object-fit:cover;" alt="Club Fair">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-mdb-target="#carouselClubFair" data-mdb-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-mdb-target="#carouselClubFair" data-mdb-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">🎙️ Club Fair</h5>
+                <p>We inspire university students every years in the University Club Fair day, about studying methodology and how to get used to the university life.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <div id="carouselDiscussion" class="carousel slide" >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="image/mentor_discussion_1.jpg" class="d-block w-100 rounded-start" style="height:250px; object-fit:cover;" alt="Discussion">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="image/mentor_discussion_2.jpg" class="d-block w-100 rounded-start" style="height:250px; object-fit:cover;" alt="Discussion">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-mdb-target="#carouselDiscussion" data-mdb-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-mdb-target="#carouselDiscussion" data-mdb-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">📖 Nonstop discussion to improve the quality of teaching</h5>
+                <p>To achieve best quality of teaching, we have weekly discussions. We believe looking forward and improvement is the key for sustainable education.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <div id="carouselPiMA" class="carousel slide" >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="image/mentor_pima_1.png" class="d-block w-100 rounded-start" style="height:250px; object-fit:cover;" alt="PiMA">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="image/mentor_pima_2.jpg" class="d-block w-100 rounded-start" style="height:250px; object-fit:cover;" alt="PiMA">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="image/mentor_pima_3.png" class="d-block w-100 rounded-start" style="height:250px; object-fit:cover;" alt="PiMA">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="image/mentor_pima_4.jpg" class="d-block w-100 rounded-start" style="height:250px; object-fit:cover;" alt="PiMA">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="image/mentor_pima_5.jpg" class="d-block w-100 rounded-start" style="height:250px; object-fit:cover;" alt="PiMA">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="image/mentor_pima_6.png" class="d-block w-100 rounded-start" style="height:250px; object-fit:cover;" alt="PiMA">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-mdb-target="#carouselPiMA" data-mdb-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-mdb-target="#carouselPiMA" data-mdb-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">🏕️ Hanoi Mathematical Modelling Contest & PiMA Summer Camp</h5>
+                <p>Beside USTH Learning Support, I spent my 2 summers for Hanoi Mathematical Modelling Contest - 2024 and PiMA Summer Camp - 2025 (Project in Mathematics and Application), to mentor and support Vietnamese high school/university student who also love Mathematics and challenges.</p>
+                <p>Thanks to these organizations, I have a chance to meet more talented and passionate friends from all around the Viet Nam country.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Travel Section -->
+  <section id="travel">
+    <div class="container">
+      <h2 class="section-title">A traveler</h2>
+      <blockquote>Our ancestors said <em>"A day's journey provides a basket full of knowledge"</em>. So I follow their advice, and received many lessons outside the school.<br>
+      The world is breathtaking beauty. I want to share these moment to who has been patient until now ^^</blockquote>
+      <div id="carouselTravel" class="carousel slide mt-4">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row g-2">
+              <div class="col-3 text-center">
+                <img src="image/travel_trento.jpg" class="img-fluid rounded" alt="Trento">
+                <p class="mt-1">🇮🇹 Trento, Italy</p>
+              </div>
+              <div class="col-3 text-center">
+                <img src="image/travel_verona.jpg" class="img-fluid rounded" alt="Verona">
+                <p class="mt-1">🇮🇹 Verona, Italy</p>
+              </div>
+              <div class="col-3 text-center">
+                <img src="image/travel_milano.jpg" class="img-fluid rounded" alt="Milano">
+                <p class="mt-1">🇮🇹 Milano, Italy</p>
+              </div>
+              <div class="col-3 text-center">
+                <img src="image/travel_dolomites.jpg" class="img-fluid rounded" alt="Dolomites">
+                <p class="mt-1">🇮🇹 Dolomites, Italy</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row g-2">
+              <div class="col-3 text-center">
+                <img src="image/travel_peschiera.jpg" class="img-fluid rounded" alt="Peschiera">
+                <p class="mt-1">🇮🇹 Peschiera, Italy</p>
+              </div>
+              <div class="col-3 text-center">
+                <img src="image/travel_garda.jpg" class="img-fluid rounded" alt="Garda">
+                <p class="mt-1">🇮🇹 Lago di Garda, Italy</p>
+              </div>
+              <div class="col-3 text-center">
+                <img src="image/travel_cologne.jpg" class="img-fluid rounded" alt="Cologne">
+                <p class="mt-1">🇩🇪 Cologne, Germany</p>
+              </div>
+              <div class="col-3 text-center">
+                <img src="image/travel_innsbruck.jpg" class="img-fluid rounded" alt="Innsbruck">
+                <p class="mt-1">🇦🇹 Innsbruck, Austria</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row g-2">
+              <div class="col-3 text-center">
+                <img src="image/travel_hof.jpg" class="img-fluid rounded" alt="Hof">
+                <p class="mt-1">🇩🇪 Hof, Germany</p>
+              </div>
+              <div class="col-3 text-center">
+                <img src="image/travel_berlin.jpg" class="img-fluid rounded" alt="Berlin">
+                <p class="mt-1">🇩🇪 Berlin, Germany</p>
+              </div>
+              <div class="col-3 text-center">
+                <img src="image/travel_hamburg.jpg" class="img-fluid rounded" alt="Hamburg">
+                <p class="mt-1">🇩🇪 Hamburg, Germany</p>
+              </div>
+              <div class="col-3 text-center">
+                <img src="image/travel_dresden.jpg" class="img-fluid rounded" alt="Dresden">
+                <p class="mt-1">🇩🇪 Dresden, Germany</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-mdb-target="#carouselTravel" data-mdb-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-mdb-target="#carouselTravel" data-mdb-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Art Section -->
+  <section id="art">
+    <div class="container">
+      <h2 class="section-title">A (beginner) artist</h2>
+      <blockquote>Art is meditation, it needs patient, quiet and listen to yourself. There is no beauty or ugly art, every efforts is art, no matter how.</blockquote>
+      <h5 class="mt-4">🎨 Some of my paintings</h5>
+      <div class="row mt-3">
+        <div class="col-6 col-md-3 mb-3"><img src="image/art_painting_1.jpg" class="gallery-img" alt="Painting 1"></div>
+        <div class="col-6 col-md-3 mb-3"><img src="image/art_painting_2.jpg" class="gallery-img" alt="Painting 2"></div>
+        <div class="col-6 col-md-3 mb-3"><img src="image/art_painting_3.jpg" class="gallery-img" alt="Painting 3"></div>
+        <div class="col-6 col-md-3 mb-3"><img src="image/art_painting_4.jpg" class="gallery-img" alt="Painting 4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Friends Section -->
+  <section id="friends">
+    <div class="container">
+      <h2 class="section-title">A friend and a child</h2>
+      <blockquote>After all, I am just a children, who loves having fun and lucky enough to always have good friends, mentors and teachers around the world on every journey.<br>
+      I am grateful to meet them in my life. They have made who I am today and have been my second family when I was far from home.</blockquote>
+      <div id="carouselFriends" class="carousel slide mt-4">
+        <div class="carousel-inner">
+          <!-- Portrait images -->
+          <div class="carousel-item active">
+            <div class="row g-2">
+              <div class="col-3"><img src="image/friends_1.jpg" class="w-100 rounded" style="height:300px; object-fit:cover;" alt="Friends"></div>
+              <div class="col-3"><img src="image/friends_2.jpg" class="w-100 rounded" style="height:300px; object-fit:cover;" alt="Friends"></div>
+              <div class="col-3"><img src="image/friends_3.jpg" class="w-100 rounded" style="height:300px; object-fit:cover;" alt="Friends"></div>
+              <div class="col-3"><img src="image/friends_4.jpg" class="w-100 rounded" style="height:300px; object-fit:cover;" alt="Friends"></div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row g-2">
+              <div class="col-3"><img src="image/friends_5.jpg" class="w-100 rounded" style="height:300px; object-fit:cover;" alt="Friends"></div>
+              <div class="col-3"><img src="image/friends_6.jpg" class="w-100 rounded" style="height:300px; object-fit:cover;" alt="Friends"></div>
+              <div class="col-3"><img src="image/friends_7.jpg" class="w-100 rounded" style="height:300px; object-fit:cover;" alt="Friends"></div>
+              <div class="col-3"><img src="image/friends_8.jpg" class="w-100 rounded" style="height:300px; object-fit:cover;" alt="Friends"></div>
+            </div>
+          </div>
+          <!-- Landscape images -->
+          <div class="carousel-item">
+            <div class="row g-2">
+              <div class="col-3"><img src="image/friends_9.jpg" class="w-100 rounded" style="height:200px; object-fit:cover;" alt="Friends"></div>
+              <div class="col-3"><img src="image/friends_10.jpg" class="w-100 rounded" style="height:200px; object-fit:cover;" alt="Friends"></div>
+              <div class="col-3"><img src="image/friends_11.jpg" class="w-100 rounded" style="height:200px; object-fit:cover;" alt="Friends"></div>
+              <div class="col-3"><img src="image/friends_12.jpg" class="w-100 rounded" style="height:200px; object-fit:cover;" alt="Friends"></div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row g-2">
+              <div class="col-3"><img src="image/friends_13.jpg" class="w-100 rounded" style="height:200px; object-fit:cover;" alt="Friends"></div>
+              <div class="col-3"><img src="image/friends_14.jpg" class="w-100 rounded" style="height:200px; object-fit:cover;" alt="Friends"></div>
+              <div class="col-3"><img src="image/friends_15.jpg" class="w-100 rounded" style="height:200px; object-fit:cover;" alt="Friends"></div>
+              <div class="col-3"><img src="image/friends_16.jpg" class="w-100 rounded" style="height:200px; object-fit:cover;" alt="Friends"></div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-mdb-target="#carouselFriends" data-mdb-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-mdb-target="#carouselFriends" data-mdb-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Information</h2>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:vannguyen.workspace@gmail.com">vannguyen.workspace@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/vannt189/" target="_blank">linkedin.com/in/vannt189</a>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-github"></i>
+            <a href="https://github.com/chisquare09" target="_blank">github.com/chisquare09</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Van Nguyen. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/mdb.min.js"></script>
+  <script>
+    // Make details elements independent
+    document.querySelectorAll('details').forEach(d => {
+      d.addEventListener('click', e => e.stopPropagation());
+    });
+  </script>
+</body>
+</html>
